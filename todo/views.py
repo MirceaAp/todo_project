@@ -88,6 +88,7 @@ def createtodo(request):
 
 @login_required
 def viewtodo(request, todo_pk):
+    global form
     todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
     if request.method == "GET":
         form = TodoForm(instance=todo)
